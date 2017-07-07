@@ -1,4 +1,11 @@
+import React from "react";
 import {AppRegistry} from "react-native";
-import myapp from "./components/App";
+import { createStore } from "redux";
+import { reducer } from "./todoListRedux";
+import App from "./components/App";
 
-AppRegistry.registerComponent("myapp",()=>myapp);
+const store = createStore(reducer);
+
+const myappWithStore=()=><App store={store} />
+
+AppRegistry.registerComponent("myapp",()=>myappWithStore);
